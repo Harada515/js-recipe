@@ -1,10 +1,23 @@
 const quizText = document.getElementById("quiz-text")
 const quizImage = document.getElementById("quiz-image")
+/*四択問題
 const choice1 = document.getElementById("choice-1")
 const choice2 = document.getElementById("choice-2")
 const choice3 = document.getElementById("choice-3")
 const choice4 = document.getElementById("choice-4")
+*/
 const feedback = document.getElementById("feedback")
+
+//選択肢の数と答えの表示
+const choice1 = document.createElement("input");
+choice1.type="button";
+const choice2 = document.createElement("input");
+choice2.type="button";
+const choice3 = document.createElement("input");
+choice3.type="button";
+const choice4 = document.createElement("input");
+choice4.type="button";
+
 
 // クイズの内容
 const quiz = {
