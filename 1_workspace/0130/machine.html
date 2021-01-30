@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="coke">コーラ</button>
+    <button id="100yen">１００円</button>
+    <button id="change">お釣り</button>
+    <div>投入金額</div>
+    <div id="display"></div>
+    <div>お財布</div>
+    <div id="display2"></div>
+    <script>
+      const coke = document.getElementById("coke")
+      const addHundred = document.getElementById("100yen")
+      const change = document.getElementById("change")
+      const display = document.getElementById("display")
+      const display2 = document.getElementById("display2")
+
+      let tounyukingaku = 0
+      let osaifu = 1000
+
+      const setDisplay = function(a, b) {
+        display.textContent = a
+        display2.textContent = b
+      }
+      setDisplay(tounyukingaku, osaifu)
+
+      coke.onclick = function() {
+        if (tounyukingaku >= 100) {
+          tounyukingaku = tounyukingaku - 100
+          alert("コーラを購入しました")
+        } else {
+          alert("金額が足りません")
+        }
+        setDisplay(tounyukingaku, osaifu)
+      }
+
+      addHundred.onclick = function() {
+        tounyukingaku = tounyukingaku + 100
+        osaifu = osaifu - 100
+        setDisplay(tounyukingaku, osaifu)
+      }
+      change.onclick = function() {
+        alert(tounyukingaku + "円出ました")
+        osaifu = osaifu + tounyukingaku
+        tounyukingaku = 0
+        setDisplay(tounyukingaku, osaifu)
+      }
+    </script>
+  </body>
+</html>
