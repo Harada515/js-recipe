@@ -1,38 +1,67 @@
 //画像切り替え
-const gazo = document.getElementsByid("gazo")
-let img = new Array()
-img[0] = new Image()
-img[0].src = "shinjuku/00.JPG"
-img[1] = new Image()
-img[1].src = "shinjuku/01.JPG"
-img[2] = new Image()
-img[2].src = "shinjuku/02.JPG"
-img[3] = new Image()
-img[3].src = "shinjuku/03.JPG"
-img[4] = new Image()
-img[4].src = "shinjuku/04.JPG"
+const gazo = document.getElementById("gazo")
 let count1 = 0
-gazo.onclick = function changeIMG() {
-  if (count1 == 4) {
-    count1 = 0
+gazo.onclick = function() {
+  if (count1 % 5 === 0) {
+    count1 += 1
+    gazo.classList.add("Photo01")
+  } else if (count1 % 5 === 1) {
+    count1 += 1
+    gazo.classList.remove("Photo01")
+    gazo.classList.add("Photo02")
+  } else if (count1 % 5 === 2) {
+    count1 += 1
+    gazo.classList.remove("Photo02")
+    gazo.classList.add("Photo03")
+  } else if (count1 % 5 === 3) {
+    count1 += 1
+    gazo.classList.remove("Photo03")
+    gazo.classList.add("Photo04")
   } else {
-    count1++
+    count1 = 0
+    gazo.classList.remove("Photo04")
+    gazo.classList.add("Photo00")
   }
-  src = img[count1].src
 }
 
-//カウンター
+const sunobo = document.getElementById("sunobo")
+let count2 = 0
+sunobo.onclick = function() {
+  if (count2 % 5 === 0) {
+    count2 += 1
+    sunobo.classList.remove("sunobo00")
+    sunobo.classList.add("sunobo01")
+  } else if (count2 % 5 === 1) {
+    count2 += 1
+    sunobo.classList.remove("sunobo01")
+    sunobo.classList.add("sunobo02")
+  } else if (count2 % 5 === 2) {
+    count2 += 1
+    sunobo.classList.remove("sunobo02")
+    sunobo.classList.add("sunobo03")
+  } else if (count2 % 5 === 3) {
+    count2 += 1
+    sunobo.classList.remove("sunobo03")
+    sunobo.classList.add("sunobo04")
+  } else {
+    count2 = 0
+    sunobo.classList.remove("sunobo04")
+    sunobo.classList.add("sunobo00")
+  }
+}
+
+//タイマー
 const display = document.getElementById("display")
 
 let count = 0
 
 const countUp = function() {
   //countを更新
-  count += 1 // 追加
+  count += 1
   //count を秒単位にして表示
-  display.textContent = count / 100
+  display.textContent = count
 }
 
 window.onload = function() {
-  setInterval(countUp, 10)
+  setInterval(countUp, 1000)
 }

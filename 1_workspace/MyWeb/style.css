@@ -139,8 +139,75 @@ h3 {
   font-family: serif;
 }
 
-.Photo {
-  width: 40%;
+.Photo00 {
+  background-image: url(./shinjuku/00.JPG);
+  background-size: cover;
+  background-position: 60% 50%;
+  width: 450px;
+  height: 330px;
+}
+.Photo01 {
+  background-image: url(./shinjuku/01.JPG);
+  background-size: cover;
+  background-position: 60% 50%;
+  width: 450px;
+  height: 330px;
+}
+.Photo02 {
+  background-image: url(./shinjuku/02.JPG);
+  background-size: cover;
+  background-position: 60% 50%;
+  width: 450px;
+  height: 330px;
+}
+.Photo03 {
+  background-image: url(./shinjuku/03.JPG);
+  background-size: cover;
+  background-position: 60% 50%;
+  width: 450px;
+  height: 330px;
+}
+.Photo04 {
+  background-image: url(./shinjuku/04.JPG);
+  background-size: cover;
+  background-position: 60% 50%;
+  width: 450px;
+  height: 330px;
+}
+
+.sunobo00 {
+  background-image: url(./sunobo/00.JPG);
+  background-size: cover;
+  background-position: 60% 50%;
+  width: 450px;
+  height: 330px;
+}
+.sunobo01 {
+  background-image: url(./sunobo/01.JPG);
+  background-size: cover;
+  background-position: 60% 50%;
+  width: 450px;
+  height: 330px;
+}
+.sunobo02 {
+  background-image: url(./sunobo/02.JPG);
+  background-size: cover;
+  background-position: 60% 50%;
+  width: 450px;
+  height: 330px;
+}
+.sunobo03 {
+  background-image: url(./sunobo/03.JPG);
+  background-size: cover;
+  background-position: 60% 50%;
+  width: 450px;
+  height: 330px;
+}
+.sunobo04 {
+  background-image: url(./sunobo/04.JPG);
+  background-size: cover;
+  background-position: 20% 50%;
+  width: 450px;
   height: 330px;
 }
 /*Third block End*/
