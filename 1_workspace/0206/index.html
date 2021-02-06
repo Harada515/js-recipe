@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=d, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div id="display">{{count}}</div>
+      <button v-on:click="like">like</button>
+    </div>
+    <div id="app-2">
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound
+        title!
+      </span>
+    </div>
+    <div id="app-3">
+      <span v-if="seen">Now you see me</span>
+    </div>
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text2 }}
+        </li>
+      </ol>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          count: 0,
+        },
+        methods: {
+          like: function() {
+            this.count += 1
+          },
+        },
+      })
+      const app2 = new Vue({
+        el: "#app-2",
+        data: {
+          message: "You loaded this page on " + new Date().toLocaleString(),
+        },
+      })
+      const app3 = new Vue({
+        el: "#app-3",
+        data: {
+          seen: false,
+        },
+      })
+      var app4 = new Vue({
+        el: "#app-4",
+        data: {
+          todos: [
+            { text: "Learn JavaScript", text2: "Like" },
+            { text: "Learn Vue" },
+            { text: "Build something awesome" },
+          ],
+        },
+      })
+    </script>
+  </body>
+</html>
