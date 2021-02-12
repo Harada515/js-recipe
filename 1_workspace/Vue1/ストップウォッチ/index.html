@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div><h2 v-text="display"></h2></div>
+      <button v-text="textContent" v-on:click="button"></button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      let count = 0
+      let id = null
+      const app = new Vue({
+        el: "#app",
+        data: {
+          display: 0,
+          textContent: "start",
+        },
+        methods: {
+          button: function() {
+            if (id === null) {
+              // start
+              id = setInterval(this.countUp, 10)
+              this.textContent = "stop"
+            } else {
+              // stop
+              clearInterval(id)
+              id = null
+              this.textContent = "start"
+            }
+          },
+          countUp: function() {
+            //countを更新
+            count += 1
+            console.log(count) // 追加
+            //count を秒単位にして表示
+            this.display = count / 100
+          },
+        },
+      })
+    </script>
+  </body>
+</html>
