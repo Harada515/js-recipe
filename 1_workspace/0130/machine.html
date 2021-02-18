@@ -6,14 +6,71 @@
     <title>Document</title>
   </head>
   <body>
-    <button id="coke">コーラ</button>
-    <button id="100yen">１００円</button>
-    <button id="change">お釣り</button>
-    <div>投入金額</div>
-    <div id="display"></div>
-    <div>お財布</div>
-    <div id="display2"></div>
+    <div id="app">
+      <button v-on:click="coke">コーラ</button>
+      <button v-on:click="coin">１００円</button>
+      <button v-on:click="change">お釣り</button>
+      <div>投入金額</div>
+      <div>{{display}}</div>
+      <div>お財布</div>
+      <div>{{display2}}</div>
+      <div v-for="result in results">
+        <!-- <div>{{result.id}}</div> -->
+        <!-- <div>{{result.text}}</div> -->
+        <div>{{result.id +":"+ result.text}}</div>
+        <!-- <div>{{value}}</div> -->
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          display: 0,
+          display2: 1000,
+          results: [{ id: 0, text: "お金を入れてください" }],
+        },
+        computed: {
+          value: function() {
+            return (
+              this.results[0].id +
+              " " +
+              this.results[0].text +
+              " " +
+              this.display
+            )
+          },
+        },
+        methods: {
+          coke: function() {
+            if (this.display >= 100) {
+              this.display = this.display - 100
+              this.results.push({
+                id: this.results.length,
+                text: "コーラを買いました",
+              })
+            } else {
+              this.results.push({
+                id: this.results.length,
+                text: "金額が足りません",
+              })
+            }
+          },
+          coin: function() {
+            this.display = this.display + 100
+            this.display2 = this.display2 - 100
+          },
+          change: function() {
+            this.results.push({
+              id: this.results.length,
+              text: this.display + "円出ました",
+            })
+            this.display2 = this.display2 + this.display
+            this.display = 0
+          },
+        },
+      })
+      /*
       const coke = document.getElementById("coke")
       const addHundred = document.getElementById("100yen")
       const change = document.getElementById("change")
@@ -49,7 +106,7 @@
         osaifu = osaifu + tounyukingaku
         tounyukingaku = 0
         setDisplay(tounyukingaku, osaifu)
-      }
+      }*/
     </script>
   </body>
 </html>
